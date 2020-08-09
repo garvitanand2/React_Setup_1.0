@@ -17,6 +17,13 @@ import { AllCommunityModules } from "@ag-grid-community/all-modules";
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
 import Card from "../../component/Card";
+import AboutMe from "./Components/Aboutme"
+import Education from "./Components/Education";
+import Employment from "./Components/Employment";
+import Experience from "./Components/Experience";
+import Home from "./Components/Home";
+import Project from "./Components/Projects";
+import TeckSkills from "./Components/TechSkills";
 
 class Resume extends Component {
   constructor(props) {
@@ -45,40 +52,16 @@ class Resume extends Component {
           <Text size="medium" color="green">
             {"Welcome to Resume"}
           </Text>
-
-          <Text size="medium" color="green">
-            {"Please Select the module you want to the access."}
-          </Text>
         </Box>
-        <Box direction="row" gap="small">
-          <Box
-            width="25%"
-            elevation="medium"
-            onClick={() => {
-              this.hamdleResumeonClick();
-            }}
-          >
-            <Card title="Resume" description="My Resume" />
-          </Box>
-
-          <Box width="25%" elevation="medium">
-            <Card
-              title="Food Ordering"
-              description="A sample web app to order food ordering and vie food items"
-            ></Card>
-          </Box>
-          <Box width="25%" elevation="medium">
-            <Card
-              title="E-commerce"
-              description="A web app is a sample copy of amamzon.com"
-            ></Card>
-          </Box>
-          <Box width="25%" elevation="medium">
-            <Card
-              title="Fashion"
-              description="A gallery where ypu find all your required designs"
-            ></Card>
-          </Box>
+        <Box width="100%" border={{ color: "red", size: "medium" }}>
+          <Text>{"Sample Resume"}</Text>
+          <AboutMe></AboutMe>
+          <Education></Education>
+          <Employment></Employment>
+          <Experience></Experience>
+          { false && <Home></Home>}
+          <Project></Project>
+          <TeckSkills></TeckSkills>
         </Box>
       </Box>
     );

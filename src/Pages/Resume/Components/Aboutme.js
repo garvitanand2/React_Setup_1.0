@@ -17,7 +17,8 @@ import { AllCommunityModules } from "@ag-grid-community/all-modules";
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
 
-class Experience extends Component {
+
+class AboutMe extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,9 +32,9 @@ class Experience extends Component {
   };
 
   handledrop = () => {
-    this.state.visible
-      ? this.setState({ visible: false })
-      : this.setState({ visible: true });
+     
+ this.state.visible ? this.setState({ visible: false }) : this.setState({ visible: true });
+      
   };
 
   render() {
@@ -47,12 +48,12 @@ class Experience extends Component {
         flex="grow"
         alignSelf="center"
         // gap="medium"
-        elevation="medium"
+        elevation = "medium"
       >
-        <Box background="yellow" direction="row">
-          <Box width="90%" align="start" pad={{ left: "small" }}>
+        <Box    background="yellow"  direction="row">
+          <Box width="90%" align="start" pad = {{left:'small'}}>
             <Text color="black" size="medium">
-              {"Experience"}
+              {"About Me"}
             </Text>
           </Box>
           <Box
@@ -72,7 +73,7 @@ class Experience extends Component {
           </Box>
         </Box>
         {this.state.visible && (
-          <Box>
+          <Box >
             <Text>{"Some Discription"}</Text>
           </Box>
         )}
@@ -81,4 +82,4 @@ class Experience extends Component {
   }
 }
 
-export default Experience;
+export default AboutMe;
