@@ -20,6 +20,8 @@ import { LinkedinOption } from "grommet-icons";
 import { StackOverflow } from "grommet-icons";
 import { Twitter } from "grommet-icons";
 import { Github } from "grommet-icons";
+import { Medium } from "grommet-icons";
+
 
 class AboutMe extends Component {
   constructor(props) {
@@ -58,6 +60,10 @@ class AboutMe extends Component {
   handleTwitterClick = () => {
     window.open(" https://twitter.com/AnandGarvit", "_self");
   };
+
+  handleMediumClick = () =>{
+       window.open("https://medium.com/@garvitanand11", "_self");
+  }
   render() {
     return (
       <Box
@@ -93,7 +99,7 @@ class AboutMe extends Component {
           </Box>
         </Box>
         {true && (
-          <Box background = "black">
+          <Box background="black">
             <Box
               width="100%"
               direction="row"
@@ -122,6 +128,11 @@ class AboutMe extends Component {
                   this.handleGitClick();
                 }}
               ></Github>
+              <Medium
+                onClick={() => {
+                  this.handleMediumClick();
+                }}
+              ></Medium>
             </Box>
             <Heading>{"About Me"}</Heading>
             <Box pad={{ left: "medium" }}>
