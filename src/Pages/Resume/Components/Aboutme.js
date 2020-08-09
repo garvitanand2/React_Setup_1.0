@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Box, Text, Image } from "grommet";
+import { Box, Text, Image, Carousel, Heading } from "grommet";
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +16,10 @@ import { AllCommunityModules } from "@ag-grid-community/all-modules";
 
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
-
+import { LinkedinOption } from "grommet-icons";
+import { StackOverflow } from "grommet-icons";
+import { Twitter } from "grommet-icons";
+import { Github } from "grommet-icons";
 
 class AboutMe extends Component {
   constructor(props) {
@@ -32,26 +35,43 @@ class AboutMe extends Component {
   };
 
   handledrop = () => {
-     
- this.state.visible ? this.setState({ visible: false }) : this.setState({ visible: true });
-      
+    this.state.visible
+      ? this.setState({ visible: false })
+      : this.setState({ visible: true });
   };
 
+  handleLinkedInClick = () => {
+    window.open("https://www.linkedin.com/in/garvitanand2/", "_self");
+  };
+
+  handleStackClick = () => {
+    window.open(
+      "https://stackoverflow.com/users/7703785/garvit-anand",
+      "_self"
+    );
+  };
+
+  handleGitClick = () => {
+    window.open("https://github.com/garvitanand2", "_self");
+  };
+
+  handleTwitterClick = () => {
+    window.open(" https://twitter.com/AnandGarvit", "_self");
+  };
   render() {
-    console.log("Comping props", this.props);
     return (
       <Box
         background="white"
         // pad="medium"
         width="100%"
-        border={{ color: "black", size: "medium" }}
+        // border={{ color: "black", size: "medium" }}
         flex="grow"
         alignSelf="center"
         // gap="medium"
-        elevation = "medium"
+        elevation="medium"
       >
-        <Box    background="yellow"  direction="row">
-          <Box width="90%" align="start" pad = {{left:'small'}}>
+        <Box background="yellow" direction="row">
+          <Box width="90%" align="start" pad={{ left: "small" }}>
             <Text color="black" size="medium">
               {"About Me"}
             </Text>
@@ -72,9 +92,54 @@ class AboutMe extends Component {
             />
           </Box>
         </Box>
-        {this.state.visible && (
-          <Box >
-            <Text>{"Some Discription"}</Text>
+        {true && (
+          <Box background = "black">
+            <Box
+              width="100%"
+              direction="row"
+              gap="medium"
+              pad="medium"
+              justify="end"
+            >
+              <LinkedinOption
+                color="white"
+                onClick={() => {
+                  this.handleLinkedInClick();
+                }}
+              ></LinkedinOption>
+              <StackOverflow
+                onClick={() => {
+                  this.handleStackClick();
+                }}
+              ></StackOverflow>
+              <Twitter
+                onClick={() => {
+                  this.handleTwitterClick();
+                }}
+              ></Twitter>
+              <Github
+                onClick={() => {
+                  this.handleGitClick();
+                }}
+              ></Github>
+            </Box>
+            <Heading>{"About Me"}</Heading>
+            <Box pad={{ left: "medium" }}>
+              <Heading textAlign="start" level={3}>
+                {"Objective"}
+              </Heading>
+            </Box>
+            <Box
+              width="100%"
+              alignSelf="start"
+              //   border={{ color: "red", size: "small" }}
+            >
+              <Text size="medium">
+                {
+                  "To obtain an opportunity to work in competitive environment, that will enable me to contribute my academic skills and experience towards the growth of the organization and also leverages the scope of learning from the peer members"
+                }
+              </Text>
+            </Box>
           </Box>
         )}
       </Box>

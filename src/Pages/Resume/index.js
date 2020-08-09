@@ -17,7 +17,7 @@ import { AllCommunityModules } from "@ag-grid-community/all-modules";
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
 import Card from "../../component/Card";
-import AboutMe from "./Components/Aboutme"
+import AboutMe from "./Components/Aboutme";
 import Education from "./Components/Education";
 import Employment from "./Components/Employment";
 import Experience from "./Components/Experience";
@@ -37,29 +37,14 @@ class Resume extends Component {
   };
 
   render() {
-    console.log("Comping props", this.props);
     return (
-      <Box
-        background="white"
-        pad="medium"
-        width="100%"
-        // border={{ color: "red", size: "small" }}
-        flex="grow"
-        alignSelf="center"
-        gap="medium"
-      >
-        <Box>
-          <Text size="medium" color="green">
-            {"Welcome to Resume"}
-          </Text>
-        </Box>
-        <Box width="100%" border={{ color: "red", size: "medium" }}>
-          <Text>{"Sample Resume"}</Text>
+      <Box width="100%" flex="grow">
+        <Box width="100%">
           <AboutMe></AboutMe>
           <Education></Education>
           <Employment></Employment>
           <Experience></Experience>
-          { false && <Home></Home>}
+          {false && <Home></Home>}
           <Project></Project>
           <TeckSkills></TeckSkills>
         </Box>

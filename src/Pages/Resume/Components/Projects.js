@@ -43,7 +43,7 @@ class Project extends Component {
         background="white"
         // pad="medium"
         width="100%"
-        border={{ color: "black", size: "medium" }}
+        // border={{ color: "black", size: "medium" }}
         flex="grow"
         alignSelf="center"
         // gap="medium"
