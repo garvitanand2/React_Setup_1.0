@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import { Card, Col, Row } from "antd";
-import {Box, Text} from "grommet"
+import { Box, Text } from "grommet";
 import { AgGridReact } from "@ag-grid-community/react";
 import { AllCommunityModules } from "@ag-grid-community/all-modules";
 
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
 
-
-
-
-class Main extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,10 +52,10 @@ class Main extends Component {
         border={{ color: "brand", size: "large" }}
         pad="medium"
       >
-       <Text>{"Login Page"}</Text>
+        <Text>{"Home Page"}</Text>
       </Box>
     );
   }
 }
 
-export default Main;
+export default Home;
