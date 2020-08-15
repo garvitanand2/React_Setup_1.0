@@ -1,12 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import MyComponent from './component/home.js';
-import MainPage from './component/Main'
-import Home from './component/Page2'
-import StartPage from './component/Start'
-import Resume from './Pages/Resume'
-import { Box,Text, Clock, Heading } from "grommet";
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import MyComponent from "./component/home.js";
+import MainPage from "./component/Main";
+import Home from "./component/Page2";
+import StartPage from "./component/Start";
+import Resume from "./Pages/Resume";
+import { Box, Text, Clock, Heading } from "grommet";
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,13 +23,13 @@ function App() {
     <Router>
       <div className="App" width="100%" flex="grow">
         <Switch>
-          <Route path="/login">
+          <Route path={process.env.PUBLIC_URL + "/login"}>
             <MainPage />
           </Route>
-          <Route path="/resume">
+          <Route path={process.env.PUBLIC_URL + "/resume"}>
             <Resume />
           </Route>
-          <Route path="/home">
+          <Route path={process.env.PUBLIC_URL + "/home"}>
             <Home />
           </Route>
           <Route path="/">
