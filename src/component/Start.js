@@ -61,12 +61,12 @@ class Start extends Component {
             <Card title="Resume" description="My Resume" />
           </Box>
 
-          <Box width="25%" elevation="medium">
+         { false &&  <Box width="25%" elevation="medium">
             <Card
               title="Food Ordering"
               description="A sample web app to order food ordering and vie food items"
             ></Card>
-          </Box>
+          </Box>}
           <Box width="25%" elevation="medium">
             <Card
               title="E-commerce"
