@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Box, Text, Image } from "grommet";
+import { Box, Text, Image, Heading } from "grommet";
 import {
   BrowserRouter as Router,
   Switch,
@@ -37,45 +37,236 @@ class Education extends Component {
   };
 
   render() {
-    console.log("Comping props", this.props);
     return (
       <Box
-        background="white"
+        background="black"
         // pad="medium"
         width="100%"
-        // border={{ color: "black", size: "medium" }}
+        border={{ color: "white", size: "small" }}
         flex="grow"
         alignSelf="center"
         // gap="medium"
         elevation="medium"
       >
-        <Box background="yellow" direction="row">
-          <Box width="90%" align="start" pad={{ left: "small" }}>
-            <Text color="black" size="medium">
-              {"Education"}
-            </Text>
-          </Box>
+        <Box justify="center">
+          <Heading alignSelf="center">{"Education "}</Heading>
+        </Box>
+        <Box
+          // border={{ color: "red", size: "small" }}
+          gap="medium"
+          direction="row"
+          pad="medium"
+        >
           <Box
-            width="10%"
-            align="end"
-            onClick={() => {
-              this.handledrop();
-            }}
+            width="33%"
+            background="#66ba80"
+            gap="medium"
+            elevation="medium"
+            pad="small"
           >
-            <Image
-              //   fit="cover"
-              src={process.env.PUBLIC_URL + "/Images/new_down.png"}
-              fit="contain"
-              height="12px"
-              style={{ cursor: "pointer" }}
-            />
+            <Box>
+              <Text weight="bold" size="medium">
+                {"Graduation"}
+              </Text>
+            </Box>
+            <Box>
+              <Box direction="row">
+                <Box
+                  // border={{ color: "red", size: "small" }}
+                  pad={{ left: "small" }}
+                  justify="start"
+                  alignSelf="start"
+                >
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Examination:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"University:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Institute:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Year:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Percentage:"}
+                  </Text>
+                </Box>
+                <Box
+                  // border={{ color: "red", size: "small" }}
+                  pad={{ left: "small" }}
+                >
+                  <Text alignSelf="start"> {"Graduation"}</Text>
+                  <Text alignSelf="start"> {"AKTU"}</Text>
+                  <Text alignSelf="start"> {"RKGIT"}</Text>
+                  <Text alignSelf="start"> {"2019"}</Text>
+                  <Text alignSelf="start"> {"78.96 (HONS)"}</Text>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+
+          <Box
+            width="33%"
+            background="#66ba80"
+            gap="medium"
+            elevation="medium"
+            pad="small"
+          >
+            <Box>
+              <Text weight="bold" size="medium">
+                {"Intermediate"}
+              </Text>
+            </Box>
+            <Box>
+              <Box direction="row">
+                <Box
+                  // border={{ color: "red", size: "small" }}
+                  pad={{ left: "small" }}
+                  justify="start"
+                  alignSelf="start"
+                >
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Examination:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"University:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Institute:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Year:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Percentage:"}
+                  </Text>
+                </Box>
+                <Box
+                  // border={{ color: "red", size: "small" }}
+                  pad={{ left: "small" }}
+                >
+                  <Text alignSelf="start"> {"Intermediate"}</Text>
+                  <Text alignSelf="start"> {"CBSE"}</Text>
+                  <Text alignSelf="start"> {"ESS ESS Convent School"}</Text>
+                  <Text alignSelf="start"> {"2014"}</Text>
+                  <Text alignSelf="start"> {"74.2"}</Text>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+
+          <Box
+            width="33%"
+            background="#66ba80"
+            gap="medium"
+            elevation="medium"
+            pad="small"
+          >
+            <Box>
+              <Text weight="bold" size="medium">
+                {"Matriculation"}
+              </Text>
+            </Box>
+            <Box>
+              <Box direction="row">
+                <Box
+                  // border={{ color: "red", size: "small" }}
+                  pad={{ left: "small" }}
+                  justify="start"
+                  alignSelf="start"
+                >
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Examination:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"University:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Institute:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Year:"}
+                  </Text>
+                  <Text
+                    alignSelf="start"
+                    style={{ textDecoration: "underline" }}
+                    weight="bold"
+                  >
+                    {"Percentage:"}
+                  </Text>
+                </Box>
+                <Box
+                  // border={{ color: "red", size: "small" }}
+                  pad={{ left: "small" }}
+                >
+                  <Text alignSelf="start"> {"Matriculation"}</Text>
+                  <Text alignSelf="start"> {"ICSE"}</Text>
+                  <Text alignSelf="start"> {"St . George’s College"}</Text>
+                  <Text alignSelf="start"> {"2012"}</Text>
+                  <Text alignSelf="start"> {"82.4"}</Text>
+                </Box>
+              </Box>
+            </Box>
           </Box>
         </Box>
-        {this.state.visible && (
-          <Box>
-            <Text>{"Some Discription"}</Text>
-          </Box>
-        )}
       </Box>
     );
   }
