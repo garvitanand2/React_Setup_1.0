@@ -104,6 +104,9 @@ class GITHUBFOLLOWERS extends Component {
             <Box direction="row" gap="medium">
               <Select
                 options={[
+                  "1",
+                  "2",
+                  "5",
                   "10",
                   "20",
                   "30",
@@ -192,6 +195,8 @@ class GITHUBFOLLOWERS extends Component {
                       <Text
                         alignSelf="start"
                         width="bold"
+                        size="large"
+                        color="black"
                         style={{ textDecoration: "underline" }}
                       >
                         {" "}
@@ -200,6 +205,8 @@ class GITHUBFOLLOWERS extends Component {
                       <Text
                         alignSelf="start"
                         width="bold"
+                        size="large"
+                        color="black"
                         style={{ textDecoration: "underline" }}
                       >
                         {" "}
@@ -208,6 +215,8 @@ class GITHUBFOLLOWERS extends Component {
                       <Text
                         alignSelf="start"
                         width="bold"
+                        size="large"
+                        color="black"
                         style={{ textDecoration: "underline" }}
                       >
                         {"Branch:"}
@@ -215,6 +224,8 @@ class GITHUBFOLLOWERS extends Component {
                       <Text
                         alignSelf="start"
                         width="bold"
+                        color="black"
+                        size="large"
                         style={{ textDecoration: "underline" }}
                       >
                         {" "}
@@ -227,19 +238,19 @@ class GITHUBFOLLOWERS extends Component {
                       // border={{ color: "white", size: "small" }}
                       pad="medium"
                     >
-                      <Text alignSelf="start" width="bold">
+                      <Text alignSelf="start" width="bold" size="large">
                         {" "}
                         {element.full_name}
                       </Text>
-                      <Text alignSelf="start" width="bold">
+                      <Text alignSelf="start" width="bold" size="large">
                         {" "}
                         {element.description}
                       </Text>
-                      <Text alignSelf="start" width="bold">
+                      <Text alignSelf="start" width="bold" size="large">
                         {" "}
                         {element.default_branch}
                       </Text>
-                      <Text alignSelf="start" width="bold">
+                      <Text alignSelf="start" width="bold" size="large">
                         {" "}
                         {element.created_at}
                       </Text>
@@ -257,11 +268,11 @@ class GITHUBFOLLOWERS extends Component {
                 onClick={() => {
                   // this.setState({list_size : this.state.list_size+5})
                   let size = localStorage.getItem("size");
-                  let page = localStorage.getItem("page");
+                  // let page = localStorage.getItem("page");
                   this.setState({ list_size: parseInt(size) + 5 });
-                  this.setState({ page: parseInt(page) + 1 });
+                  // this.setState({ page: parseInt(page) + 1 });
                   localStorage.setItem("size", parseInt(size) + 5);
-                  localStorage.setItem("page", parseInt(page) + 1);
+                  // localStorage.setItem("page", parseInt(page) + 1);
                   this.handleGetData();
                 }}
               ></Down>

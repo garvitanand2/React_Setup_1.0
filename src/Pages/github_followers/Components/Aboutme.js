@@ -112,7 +112,7 @@ class AboutMe extends Component {
           </Box>
           <Box justify="center" pad="none" margin="none">
             <Heading alignSelf="center" style={{ textDecoration: "underline" }}>
-              {"About Me"}
+              {"Follow the great coders"}
             </Heading>
           </Box>
           <Box pad={{ left: "medium" }}>
