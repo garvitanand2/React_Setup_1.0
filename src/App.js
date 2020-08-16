@@ -39,8 +39,8 @@ function App() {
 
         <Box direction="row">
           <Box width="90%" align="end">
-            <Text size="small">
-              {"Created By: Garvit Anand | For Sampe Use Only"}
+            <Text  weight = "bold" size="small">
+              {"Created By: Garvit Anand | All rights reserved."}
             </Text>
           </Box>
           <Box width="10%" align="end">

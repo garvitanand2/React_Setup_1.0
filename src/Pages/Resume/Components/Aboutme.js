@@ -22,7 +22,6 @@ import { Twitter } from "grommet-icons";
 import { Github } from "grommet-icons";
 import { Medium } from "grommet-icons";
 
-
 class AboutMe extends Component {
   constructor(props) {
     super(props);
@@ -61,9 +60,9 @@ class AboutMe extends Component {
     window.open(" https://twitter.com/AnandGarvit", "_self");
   };
 
-  handleMediumClick = () =>{
-       window.open("https://medium.com/@garvitanand11", "_self");
-  }
+  handleMediumClick = () => {
+    window.open("https://medium.com/@garvitanand11", "_self");
+  };
   render() {
     return (
       <Box
@@ -76,83 +75,64 @@ class AboutMe extends Component {
         // gap="medium"
         elevation="medium"
       >
-        <Box background="yellow" direction="row">
-          <Box width="90%" align="start" pad={{ left: "small" }}>
-            <Text color="black" size="medium">
+        <Box background="black">
+          <Box
+            width="100%"
+            direction="row"
+            gap="medium"
+            pad="medium"
+            justify="end"
+          >
+            <LinkedinOption
+              color="white"
+              onClick={() => {
+                this.handleLinkedInClick();
+              }}
+            ></LinkedinOption>
+            <StackOverflow
+              onClick={() => {
+                this.handleStackClick();
+              }}
+            ></StackOverflow>
+            <Twitter
+              onClick={() => {
+                this.handleTwitterClick();
+              }}
+            ></Twitter>
+            <Github
+              onClick={() => {
+                this.handleGitClick();
+              }}
+            ></Github>
+            <Medium
+              onClick={() => {
+                this.handleMediumClick();
+              }}
+            ></Medium>
+          </Box>
+          <Box justify="center" pad="none" margin="none">
+            <Heading alignSelf="center" style={{ textDecoration: "underline" }}>
               {"About Me"}
-            </Text>
+            </Heading>
+          </Box>
+          <Box pad={{ left: "medium" }}>
+            <Heading textAlign="start" level={3}>
+              {"Objective:-"}
+            </Heading>
           </Box>
           <Box
-            width="10%"
-            align="end"
-            onClick={() => {
-              this.handledrop();
-            }}
+            width="100%"
+            alignSelf="start"
+            pad={{ bottom: "medium", left: "medium" }}
+            //   border={{ color: "red", size: "small" }}
           >
-            <Image
-              //   fit="cover"
-              src={process.env.PUBLIC_URL + "/Images/new_down.png"}
-              fit="contain"
-              height="12px"
-              style={{ cursor: "pointer" }}
-            />
+            <Text size="large" alignSelf="start">
+              {
+                "I am looking forward to join a progressive organization and for a career transition. An enthusiastic in learning new things, having a high level of personal morals and integrity. A goal oriented, self-motivated and committed to the successful outcome of the project."
+              }
+            </Text>
           </Box>
         </Box>
-        {true && (
-          <Box background="black">
-            <Box
-              width="100%"
-              direction="row"
-              gap="medium"
-              pad="medium"
-              justify="end"
-            >
-              <LinkedinOption
-                color="white"
-                onClick={() => {
-                  this.handleLinkedInClick();
-                }}
-              ></LinkedinOption>
-              <StackOverflow
-                onClick={() => {
-                  this.handleStackClick();
-                }}
-              ></StackOverflow>
-              <Twitter
-                onClick={() => {
-                  this.handleTwitterClick();
-                }}
-              ></Twitter>
-              <Github
-                onClick={() => {
-                  this.handleGitClick();
-                }}
-              ></Github>
-              <Medium
-                onClick={() => {
-                  this.handleMediumClick();
-                }}
-              ></Medium>
-            </Box>
-            <Heading>{"About Me"}</Heading>
-            <Box pad={{ left: "medium" }}>
-              <Heading textAlign="start" level={3}>
-                {"Objective"}
-              </Heading>
-            </Box>
-            <Box
-              width="100%"
-              alignSelf="start"
-              //   border={{ color: "red", size: "small" }}
-            >
-              <Text size="medium">
-                {
-                  "To obtain an opportunity to work in competitive environment, that will enable me to contribute my academic skills and experience towards the growth of the organization and also leverages the scope of learning from the peer members"
-                }
-              </Text>
-            </Box>
-          </Box>
-        )}
       </Box>
     );
   }

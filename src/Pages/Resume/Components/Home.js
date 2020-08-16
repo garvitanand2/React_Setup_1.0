@@ -49,33 +49,10 @@ class Home extends Component {
         // gap="medium"
         elevation="medium"
       >
-        <Box background="yellow" direction="row">
-          <Box width="90%" align="start" pad={{ left: "small" }}>
-            <Text color="black" size="medium">
-              {"Home"}
-            </Text>
-          </Box>
-          <Box
-            width="10%"
-            align="end"
-            onClick={() => {
-              this.handledrop();
-            }}
-          >
-            <Image
-              //   fit="cover"
-              src={process.env.PUBLIC_URL + "/Images/new_down.png"}
-              fit="contain"
-              height="12px"
-              style={{ cursor: "pointer" }}
-            />
-          </Box>
-        </Box>
-        {this.state.visible && (
-          <Box>
+      <Box>
             <Text>{"Some Discription"}</Text>
           </Box>
-        )}
+      
       </Box>
     );
   }
