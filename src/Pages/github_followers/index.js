@@ -43,7 +43,7 @@ class GITHUBFOLLOWERS extends Component {
 
   handleFollow = (props) => {
     const headers = {
-      Authorization: "Token a99350b8fb474bf66541345a84ce5deb14907e4c",
+      Authorization: localStorage.getItem("token"),
     };
 
     let name = props.split("/");
@@ -62,7 +62,7 @@ class GITHUBFOLLOWERS extends Component {
 
   handleUNFollow = (props) => {
      const headers = {
-       Authorization: "Token a99350b8fb474bf66541345a84ce5deb14907e4c",
+       Authorization: localStorage.getItem("token"),
      };
 
      let name = props.split("/");
