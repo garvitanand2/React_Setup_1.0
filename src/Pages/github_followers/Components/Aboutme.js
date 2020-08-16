@@ -128,7 +128,7 @@ class AboutMe extends Component {
           >
             <Text size="large" alignSelf="start">
               {
-                "I am looking forward to join a progressive organization and for a career transition. An enthusiastic in learning new things, having a high level of personal morals and integrity. A goal oriented, self-motivated and committed to the successful outcome of the project."
+                "You are currently viewing a sample project made by #Garvit Anand, which is a basic application to get the user who had forked the facebook/react repo and you can follow or unfollow user, the user you follow will be followed by github profile garvitanand2, to view the followes click on the github image above this is highly customisable, contact to get added more features."
               }
             </Text>
           </Box>
