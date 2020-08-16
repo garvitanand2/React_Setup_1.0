@@ -37,7 +37,8 @@ function App() {
             <Home />
           </Route>
           <Route path="/">
-            <StartPage />
+            {/*<StartPage />*/}
+            <GITHUB />
           </Route>
         </Switch>
 
