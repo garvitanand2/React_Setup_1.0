@@ -6,6 +6,7 @@ import MainPage from "./component/Main";
 import Home from "./component/Page2";
 import StartPage from "./component/Start";
 import Resume from "./Pages/Resume";
+import GITHUB from "./Pages/github_followers";
 import { Box, Text, Clock, Heading } from "grommet";
 import {
   BrowserRouter as Router,
@@ -29,6 +30,9 @@ function App() {
           <Route path={process.env.PUBLIC_URL + "/resume"}>
             <Resume />
           </Route>
+          <Route path={process.env.PUBLIC_URL + "/github"}>
+            <GITHUB />
+          </Route>
           <Route path={process.env.PUBLIC_URL + "/home"}>
             <Home />
           </Route>
@@ -39,7 +43,7 @@ function App() {
 
         <Box direction="row">
           <Box width="90%" align="end">
-            <Text  weight = "bold" size="small">
+            <Text weight="bold" size="small">
               {"Created By: Garvit Anand | All rights reserved."}
             </Text>
           </Box>
