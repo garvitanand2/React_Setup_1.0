@@ -51,7 +51,11 @@ class Employment extends Component {
         elevation="medium"
       >
         <Box justify="center" direction="row" gap="small">
-          <Heading alignSelf="center" color="black">
+          <Heading
+            alignSelf="center"
+            color="black"
+            style={{ textDecoration: "underline" }}
+          >
             {"Experience"}
           </Heading>
         </Box>
@@ -72,14 +76,13 @@ class Employment extends Component {
                   <Text weight="bold" size="medium" alignSelf="start">
                     {"Associate Software Developer"}
                   </Text>
-               
-                    <Text weight="bold" size="small" alignSelf="start">
-                      {"Thoughts2Binary Consulting & Solutions"}
-                    </Text>
-                    <Text size="small" alignSelf="start">
-                      {"February 2020 - Present"}
-                    </Text>
-                 
+
+                  <Text weight="bold" size="small" alignSelf="start">
+                    {"Thoughts2Binary Consulting & Solutions"}
+                  </Text>
+                  <Text size="small" alignSelf="start">
+                    {"February 2020 - Present"}
+                  </Text>
                 </Box>
               </Box>
 
@@ -102,29 +105,29 @@ class Employment extends Component {
                         alignSelf="start"
                         gap="medium"
                       >
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>
+                          {
+                            " Responsible for handling multiple projects at the same time."
+                          }
                         </Text>
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>
+                          {
+                            " Responsible for building the UI using React Js & Redux as provide by the UX team for webapp."
+                          }
                         </Text>
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>
+                          {
+                            " Responsible for integrating the REST API end points provided by the backend teams."
+                          }
                         </Text>
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
-                        </Text>
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
-                        </Text>
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>
+                          {
+                            " Responsible for collloaborate with infra team to deploy the complete frontend ."
+                          }
                         </Text>
                       </Box>
                     </Box>
@@ -154,7 +157,7 @@ class Employment extends Component {
                     {"RSG Media Systems Pvt. Ltd."}
                   </Text>
                   <Text size="small" alignSelf="start">
-                    {"July 2029 - Feb 2020"}
+                    {"July 2019 - Feb 2020"}
                   </Text>
                 </Box>
               </Box>
@@ -178,29 +181,102 @@ class Employment extends Component {
                         alignSelf="start"
                         gap="medium"
                       >
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>
+                          {" Works on developing Rights Logic version 4.0"}
                         </Text>
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>
+                          {
+                            " Developing screen as per BA requirements using React Js."
+                          }
                         </Text>
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>
+                          {
+                            " Responsible for writting API in Node Js and integrating the same."
+                          }
                         </Text>
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>
+                          {
+                            " Responsible for writing queries so that admin page can be controlled from Database."
+                          }
                         </Text>
-                        <Text>
-                          <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>
+                          {
+                            " Writing script for data tranfer from Oracle to Postgres."
+                          }
                         </Text>
-                        <Text>
+
+                        <Text alignSelf="start">
                           <Radial size="small" color="white"></Radial>{" "}
-                          {"JAi MAta Di"}
+                          {" POC {Postgres}"}
+                        </Text>
+                      </Box>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+
+          <Box
+            width="100%"
+            background="brand"
+            gap="medium"
+            elevation="large"
+            pad="small"
+          >
+            <Box>
+              <Box direction="row" pad={{ bottom: "small" }}>
+                <Box width="5%">
+                  <Briefcase size="large" color="black"></Briefcase>
+                </Box>
+                <Box width="95%">
+                  <Text weight="bold" size="medium" alignSelf="start">
+                    {"Web Developer Intern"}
+                  </Text>
+                  <Text weight="bold" size="small" alignSelf="start">
+                    {"Kivi Technologies Private Limited"}
+                  </Text>
+                  <Text size="small" alignSelf="start">
+                    {"June 2018 - July 2018"}
+                  </Text>
+                </Box>
+              </Box>
+
+              <Text weight="bold" size="medium" alignSelf="start">
+                {"Key responsibilities :"}
+              </Text>
+            </Box>
+            <Box>
+              <Box direction="row">
+                <Box
+                  // border={{ color: "red", size: "small" }}
+                  pad={{ left: "small" }}
+                >
+                  <Box>
+                    <Box direction="row">
+                      <Box
+                        // border={{ color: "red", size: "small" }}
+                        pad={{ left: "small" }}
+                        justify="start"
+                        alignSelf="start"
+                        gap="medium"
+                      >
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>{" "}
+                          {
+                            "Worked on Web User Interface design and its development"
+                          }
+                        </Text>
+                        <Text alignSelf="start">
+                          <Radial size="small" color="white"></Radial>{" "}
+                          {
+                            "Contributed in designing a Responsive product  KiviHealth of Kivi Technologies Pvt Ltd   "
+                          }
                         </Text>
                       </Box>
                     </Box>

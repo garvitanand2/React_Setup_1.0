@@ -110,21 +110,23 @@ class AboutMe extends Component {
               }}
             ></Medium>
           </Box>
-          <Box  justify = "center" pad = "none" margin = "none">
-            <Heading alignSelf = "center">{"About Me"}</Heading>
+          <Box justify="center" pad="none" margin="none">
+            <Heading alignSelf="center" style={{ textDecoration: "underline" }}>
+              {"About Me"}
+            </Heading>
           </Box>
           <Box pad={{ left: "medium" }}>
             <Heading textAlign="start" level={3}>
-              {"Objective"}
+              {"Objective:-"}
             </Heading>
           </Box>
           <Box
             width="100%"
             alignSelf="start"
-            pad = {{bottom :'medium'}}
+            pad={{ bottom: "medium", left: "medium" }}
             //   border={{ color: "red", size: "small" }}
           >
-            <Text size="large">
+            <Text size="large" alignSelf="start">
               {
                 "I am looking forward to join a progressive organization and for a career transition. An enthusiastic in learning new things, having a high level of personal morals and integrity. A goal oriented, self-motivated and committed to the successful outcome of the project."
               }

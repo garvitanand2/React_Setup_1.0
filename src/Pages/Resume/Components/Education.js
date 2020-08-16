@@ -1,40 +1,11 @@
 import React, { Component } from "react";
-
 import { Box, Text, Image, Heading } from "grommet";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
-
-import { AgGridReact } from "@ag-grid-community/react";
-import { AllCommunityModules } from "@ag-grid-community/all-modules";
-
-import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
-import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
 
 class Education extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      visible: false,
-    };
+    this.state = {};
   }
-
-  hamdleResumeonClick = () => {
-    // const history = useHistory();
-    console.log("I am clicked for navigate to resume link");
-  };
-
-  handledrop = () => {
-    this.state.visible
-      ? this.setState({ visible: false })
-      : this.setState({ visible: true });
-  };
 
   render() {
     return (
@@ -42,14 +13,16 @@ class Education extends Component {
         background="black"
         // pad="medium"
         width="100%"
-        border={{ color: "white", size: "small" }}
+        // border={{ color: "white", size: "small" }}
         flex="grow"
         alignSelf="center"
         // gap="medium"
         elevation="medium"
       >
         <Box justify="center">
-          <Heading alignSelf="center">{"Education "}</Heading>
+          <Heading alignSelf="center" style={{ textDecoration: "underline" }}>
+            {"Education "}
+          </Heading>
         </Box>
         <Box
           // border={{ color: "red", size: "small" }}
