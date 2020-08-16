@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://garvitanand.github.io/React_Setup_1.0",
+  "homepage": "https://garvitanand.github.io/coders",
   "private": true,
   "dependencies": {
     "@ag-grid-community/all-modules": "^22.0.0",
