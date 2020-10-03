@@ -7,6 +7,7 @@ import Home from "./component/Page2";
 import StartPage from "./component/Start";
 import Resume from "./Pages/Resume";
 import GITHUB from "./Pages/github_followers";
+import TIKTAKTOE_GAME from "./Pages/Zero_Cross";
 import { Box, Text, Clock, Heading } from "grommet";
 import {
   BrowserRouter as Router,
@@ -38,7 +39,8 @@ function App() {
           </Route>
           <Route path="/">
             {/*<StartPage />*/}
-            <GITHUB />
+            {/* <GITHUB /> */}
+            <TIKTAKTOE_GAME/>
           </Route>
         </Switch>
 
