@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Box, Text, Button, Select } from "grommet";
 import { Down, Github, Search, Edit, FormTrash,Add } from "grommet-icons";
 import AboutMe from "./Components/Aboutme";
+import Form from './Components/PopUp'
 import Data from "../../Data/ToDoApp/toDoApp"
 
 const ButtonStyle = styled(Button)`
@@ -23,6 +24,7 @@ class TODOITEM extends Component {
       bucket_list:Data.bucket_list,
       list_size: "10",
       page: "1",
+      formVisibility:true,
     };
   }
 
@@ -150,169 +152,174 @@ class TODOITEM extends Component {
               />
             </Box>
           </Box>
-
+          <Form></Form>
           {this.state.bucket_list.map((element) => {
             return (
               <Box width="100%" elevation="large" background="#E5FCFF">
-              { element.status && <Box width="100%" pad="medium">
-                  <Box
-                    direction="row"
-                    width="100%"
-                    // border={{ color: "white", size: "small" }}
-                  >
-                    <Box width="100%" alignSelf="end">
-                      <Box
-                        alignSelf="end"
-                        direction="row"
-                        gap="medium"
-                        pad={{ left: "large", top: "small", bottom: "medium" }}
-                        // border={{ color: "red", size: "medium" }}
-                      >
-                        <Add
-                          size="large"
-                          color="brand"
-                          onClick={() => {
-                            this.handleAddMoreItems(element.id);
-                          }}
-                        />
-                        <FormTrash
-                          size="large"
-                          color="brand"
-                          onClick={() => {
-                            this.handleDeleteBucket(element.id);
-                          }}
-                        />
-                      
-                      </Box>
-                    </Box>
-                  </Box>
-                  <Box background="#5fe8d1">
+                {element.status && (
+                  <Box width="100%" pad="medium">
                     <Box
-                      margin={{ left: "medium", top: "small", top: "small" }}
-                    >
-                      <Box gap="small" direction="row" margin="small">
-                        <Text
-                          alignSelf="start"
-                          width="bold"
-                          size="large"
-                          color="black"
-                          style={{ textDecoration: "underline" }}
-                        >
-                          {" "}
-                          {"Bucket name:"}
-                        </Text>
-                        <Text alignSelf="start" width="bold" size="large">
-                          {" "}
-                          {element.name}
-                        </Text>
-                      </Box>
-                      <Box gap="small" direction="row" margin="small">
-                        <Text
-                          alignSelf="start"
-                          width="bold"
-                          size="large"
-                          color="black"
-                          style={{ textDecoration: "underline" }}
-                        >
-                          {" "}
-                          {"Discription:"}
-                        </Text>
-                        <Text alignSelf="start" width="bold" size="large">
-                          {" "}
-                          {element.desc}
-                        </Text>
-                      </Box>
-                      <Box gap="small" direction="row" margin="small">
-                        <Text
-                          alignSelf="start"
-                          width="bold"
-                          size="large"
-                          color="black"
-                          style={{ textDecoration: "underline" }}
-                        >
-                          {"Total Items:"}
-                        </Text>
-                        <Text alignSelf="start" width="bold" size="large">
-                          {" "}
-                          {this.state.bucket_list.length}
-                        </Text>
-                      </Box>
-                    </Box>
-                    <Box
-                      width="70%"
-                      gap="small"
+                      direction="row"
+                      width="100%"
                       // border={{ color: "white", size: "small" }}
-                      pad="medium"
                     >
-                      {true && (
-                        <Box>
-                          {" "}
-                          {element.items.map((item, index) => {
-                            return (
-                              <Box
-                                width="100%"
-                                elevation="large"
-                                background="#E5FCFF"
-                              >
-                                {item.status && (
-                                  <Box width="100%" pad="medium">
-                                    <Box background="#5fe8d1">
-                                      <Box
-                                        width="70%"
-                                        gap="small"
-                                        // border={{ color: "white", size: "small" }}
-                                        pad="medium"
-                                        direction="row"
-                                      >
-                                        <Text
-                                          alignSelf="start"
-                                          width="bold"
-                                          size="large"
+                      <Box width="100%" alignSelf="end">
+                        <Box
+                          alignSelf="end"
+                          direction="row"
+                          gap="medium"
+                          pad={{
+                            left: "large",
+                            top: "small",
+                            bottom: "medium",
+                          }}
+                          // border={{ color: "red", size: "medium" }}
+                        >
+                          <Add
+                            size="large"
+                            color="brand"
+                            onClick={() => {
+                              this.handleAddMoreItems(element.id);
+                            }}
+                          />
+                          <FormTrash
+                            size="large"
+                            color="brand"
+                            onClick={() => {
+                              this.handleDeleteBucket(element.id);
+                            }}
+                          />
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Box background="#5fe8d1">
+                      <Box
+                        margin={{ left: "medium", top: "small", top: "small" }}
+                      >
+                        <Box gap="small" direction="row" margin="small">
+                          <Text
+                            alignSelf="start"
+                            width="bold"
+                            size="large"
+                            color="black"
+                            style={{ textDecoration: "underline" }}
+                          >
+                            {" "}
+                            {"Bucket name:"}
+                          </Text>
+                          <Text alignSelf="start" width="bold" size="large">
+                            {" "}
+                            {element.name}
+                          </Text>
+                        </Box>
+                        <Box gap="small" direction="row" margin="small">
+                          <Text
+                            alignSelf="start"
+                            width="bold"
+                            size="large"
+                            color="black"
+                            style={{ textDecoration: "underline" }}
+                          >
+                            {" "}
+                            {"Discription:"}
+                          </Text>
+                          <Text alignSelf="start" width="bold" size="large">
+                            {" "}
+                            {element.desc}
+                          </Text>
+                        </Box>
+                        <Box gap="small" direction="row" margin="small">
+                          <Text
+                            alignSelf="start"
+                            width="bold"
+                            size="large"
+                            color="black"
+                            style={{ textDecoration: "underline" }}
+                          >
+                            {"Total Items:"}
+                          </Text>
+                          <Text alignSelf="start" width="bold" size="large">
+                            {" "}
+                            {this.state.bucket_list.length}
+                          </Text>
+                        </Box>
+                      </Box>
+                      <Box
+                        width="70%"
+                        gap="small"
+                        // border={{ color: "white", size: "small" }}
+                        pad="medium"
+                      >
+                        {true && (
+                          <Box>
+                            {" "}
+                            {element.items.map((item, index) => {
+                              return (
+                                <Box
+                                  width="100%"
+                                  elevation="large"
+                                  background="#E5FCFF"
+                                >
+                                  {item.status && (
+                                    <Box width="100%" pad="medium">
+                                      <Box background="#5fe8d1">
+                                        <Box
+                                          width="70%"
+                                          gap="small"
+                                          // border={{ color: "white", size: "small" }}
+                                          pad="medium"
+                                          direction="row"
                                         >
-                                          {" "}
-                                          {index + 1}
-                                        </Text>
-                                        <Text
-                                          alignSelf="start"
-                                          width="bold"
-                                          size="large"
-                                        >
-                                          {" "}
-                                          {item.data}
-                                        </Text>
-                                        <Edit
-                                          color="brand"
-                                          size="medium"
-                                          onClick={() => {
-                                            this.handleDeleteItem(
-                                              element.id,
-                                              item.id
-                                            );
-                                          }}
-                                        ></Edit>
-                                        <FormTrash
-                                          color="brand"
-                                          size="medium"
-                                          onClick={() => {
-                                            this.handleDeleteItem(
-                                              element.id,
-                                              item.id
-                                            );
-                                          }}
-                                        ></FormTrash>
+                                          <Text
+                                            alignSelf="start"
+                                            width="bold"
+                                            size="large"
+                                          >
+                                            {" "}
+                                            {index + 1}
+                                          </Text>
+                                          <Text
+                                            alignSelf="start"
+                                            width="bold"
+                                            size="large"
+                                          >
+                                            {" "}
+                                            {item.data}
+                                          </Text>
+                                          <Edit
+                                            color="brand"
+                                            size="medium"
+                                            onClick={() => {
+                                              this.handleDeleteItem(
+                                                element.id,
+                                                item.id
+                                              );
+                                            }}
+                                          ></Edit>
+                                          <FormTrash
+                                            color="brand"
+                                            size="medium"
+                                            onClick={() => {
+                                              this.handleDeleteItem(
+                                                element.id,
+                                                item.id
+                                              );
+                                            }}
+                                          ></FormTrash>
+                                        </Box>
                                       </Box>
                                     </Box>
-                                  </Box>
-                                )}{" "}
-                              </Box>
-                            );
-                          })}
-                        </Box>
-                      )}{" "}
+                                  )}{" "}
+                                </Box>
+                              );
+                            })}
+                          </Box>
+                        )}{" "}
+                      </Box>
                     </Box>
                   </Box>
-                </Box>
-             } </Box>
+                )}{" "}
+              </Box>
             );
           })}
           <Box width="100%">

@@ -9,6 +9,7 @@ import { StackOverflow } from "grommet-icons";
 import { Twitter } from "grommet-icons";
 import { Github } from "grommet-icons";
 import { Medium } from "grommet-icons";
+import Form from './PopUp'
 
 class AboutMe extends Component {
   constructor(props) {
