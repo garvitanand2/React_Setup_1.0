@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 
-import { Box, Text } from "grommet";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
+import { Box } from "grommet";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link,
+//   Redirect,
+//   useHistory,
+//   useLocation,
+// } from "react-router-dom";
 
-import { AgGridReact } from "@ag-grid-community/react";
-import { AllCommunityModules } from "@ag-grid-community/all-modules";
+// import { AgGridReact } from "@ag-grid-community/react";
+// import { AllCommunityModules } from "@ag-grid-community/all-modules";
 
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
-import Card from "../../component/Card";
+// import Card from "../../component/Card";
 import AboutMe from "./Components/Aboutme";
 import Education from "./Components/Education";
 import Employment from "./Components/Employment";

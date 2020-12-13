@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 
-import { Box, Text, Image } from "grommet";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
-
-import { AgGridReact } from "@ag-grid-community/react";
-import { AllCommunityModules } from "@ag-grid-community/all-modules";
+import { Box, Text } from "grommet";
 
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
@@ -49,10 +37,9 @@ class Home extends Component {
         // gap="medium"
         elevation="medium"
       >
-      <Box>
-            <Text>{"Some Discription"}</Text>
-          </Box>
-      
+        <Box>
+          <Text>{"Some Discription"}</Text>
+        </Box>
       </Box>
     );
   }

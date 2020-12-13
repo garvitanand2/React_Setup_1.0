@@ -9,7 +9,6 @@ import { StackOverflow } from "grommet-icons";
 import { Twitter } from "grommet-icons";
 import { Github } from "grommet-icons";
 import { Medium } from "grommet-icons";
-import Form from './PopUp'
 
 class AboutMe extends Component {
   constructor(props) {
@@ -54,16 +53,7 @@ class AboutMe extends Component {
   };
   render() {
     return (
-      <Box
-        background="white"
-        // pad="medium"
-        width="100%"
-        // border={{ color: "black", size: "medium" }}
-        flex="grow"
-        alignSelf="center"
-        // gap="medium"
-        elevation="medium"
-      >
+      <Box background="white" width="100%" alignSelf="center">
         <Box background="black">
           <Box
             width="100%"
@@ -101,14 +91,10 @@ class AboutMe extends Component {
           </Box>
           <Box justify="center" pad="none" margin="none">
             <Heading alignSelf="center" style={{ textDecoration: "underline" }}>
-              {"Maintain bucket as peryour needs"}
+              {"Wonder Bucket's"}
             </Heading>
           </Box>
-          <Box pad={{ left: "medium" }}>
-            <Heading textAlign="start" level={3}>
-              {"Objective:-"}
-            </Heading>
-          </Box>
+
           <Box
             width="100%"
             alignSelf="start"
@@ -117,7 +103,7 @@ class AboutMe extends Component {
           >
             <Text size="large" alignSelf="centre">
               {
-                "Manage your to do items, drop the items here and we take care of rest."
+                "Manage your to do items, drop the items here and we will take care of rest."
               }
             </Text>
           </Box>

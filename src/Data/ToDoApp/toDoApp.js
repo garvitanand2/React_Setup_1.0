@@ -1,5 +1,5 @@
 var toDoUsersData = {
-  id: "123",
+  id: "1",
   user_info: {
     name: "Garvit Anand",
     phone: "918800208302",
@@ -8,21 +8,13 @@ var toDoUsersData = {
   bucket_list: [
     {
       id: 0,
-      name: "Food",
-      desc: "Sample food desc",
+      name: "Sample",
+      desc: "This is a Sample bucket in whic you can add your items",
       status: true,
       items: [
-        { id: 3231, data: "To buy saucages", status: true },
-        { id: 3232, data: "To buy Arahar Dal", status: true },
-        { id: 32132, data: "To buy chicken", status: false },
+        { id: 3231, data: "Sample item", status: true, StatusGood: true },
+     
       ],
-    },
-    {
-      id: 1,
-      name: "Clothes",
-      desc: "Sample clothes desc",
-      status: true,
-      items: [{ id: 7878, data: "To buy new clothes", status: true }],
     },
   ],
 };
