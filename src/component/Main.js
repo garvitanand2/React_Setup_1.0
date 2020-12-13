@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Card, Col, Row } from "antd";
+// import { Card, Col, Row } from "antd";
 import {Box, Text} from "grommet"
-import { AgGridReact } from "@ag-grid-community/react";
-import { AllCommunityModules } from "@ag-grid-community/all-modules";
+// import { AgGridReact } from "@ag-grid-community/react";
+// import { AllCommunityModules } from "@ag-grid-community/all-modules";
 
 import "@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 import "@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";

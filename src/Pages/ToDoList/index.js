@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Box, Text } from "grommet";
-import { Edit, FormTrash, StatusGood, StatusDisabled } from "grommet-icons";
+import { FormTrash, StatusGood } from "grommet-icons";
 import AboutMe from "./Components/Aboutme";
 import Form from "./Components/PopUp";
 import Data from "../../Data/ToDoApp/toDoApp";
@@ -126,16 +126,15 @@ class TODOITEM extends Component {
         <AboutMe></AboutMe>
         <Box
           width="100%"
-          alignSelf="center"
+          // alignSelf="center"
           gap="medium"
-          elevation="medium"
-          pad="large"
-          background="black"
+          flex="grow"
+          // elevation="medium"
+          pad="small"
+          background="white"
+          border={{ color: "red", size: "medium" }}
         >
-          <Box>
-            <Box pad={{ bottom: "medium" }}></Box>
-            <Box direction="row" gap="medium"></Box>
-          </Box>
+         
           <Form
             handleAddBucket={this.handleAddBucket}
             handleAddMoreItems={this.handleAddMoreItems}
@@ -179,7 +178,7 @@ class TODOITEM extends Component {
                     </Box>
                     <Box background="white">
                       <Box
-                        margin={{ left: "medium", top: "small", top: "small" }}
+                        margin={{ left: "medium", top: "small" }}
                       >
                         <Box gap="small" direction="row" margin="small">
                           <Text
@@ -248,7 +247,6 @@ class TODOITEM extends Component {
                             <Box>
                               {" "}
                               {element.items.map((item, index) => {
-                               
                                 return (
                                   <Box
                                     width="100%"
@@ -308,7 +306,11 @@ class TODOITEM extends Component {
                                               }}
                                             ></FormTrash>
                                             <StatusGood
-                                              color= {item.StatusGood ? "brand":"green"}
+                                              color={
+                                                item.StatusGood
+                                                  ? "brand"
+                                                  : "green"
+                                              }
                                               size="medium"
                                               onClick={() => {
                                                 this.handleMarkComplete(

@@ -14,7 +14,6 @@ const ButtonStyle = styled(Button)`
 `;
 class PopUp extends Component {
   constructor(props) {
-    console.log("Coming props in popup is ", props.current_buxket);
     super(props);
     this.state = {
       setShow: false,

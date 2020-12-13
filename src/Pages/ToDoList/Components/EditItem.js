@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Box, Text, Layer, Button } from "grommet";
-import { Add,Edit, FormClose } from "grommet-icons";
+import {Edit, FormClose } from "grommet-icons";
 import styled from "styled-components";
 const ButtonStyle = styled(Button)`
   top: 403px;

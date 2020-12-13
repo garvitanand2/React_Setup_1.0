@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Box, Text, Image, Heading } from "grommet";
+import { Box, Text, Heading } from "grommet";
 
 class Education extends Component {
   constructor(props) {
