@@ -12,9 +12,9 @@ var toDoUsersData = {
       desc: "Sample food desc",
       status: true,
       items: [
-        { id: 3231, data: "To buy saucages", status: true },
-        { id: 3232, data: "To buy Arahar Dal", status: true },
-        { id: 32132, data: "To buy chicken", status: false },
+        { id: 3231, data: "To buy saucages", status: true, StatusGood: true },
+        { id: 3232, data: "To buy Arahar Dal", status: true, StatusGood: true },
+        { id: 32132, data: "To buy chicken", status: false, StatusGood: true },
       ],
     },
     {
@@ -22,7 +22,7 @@ var toDoUsersData = {
       name: "Clothes",
       desc: "Sample clothes desc",
       status: true,
-      items: [{ id: 7878, data: "To buy new clothes", status: true }],
+      items: [{ id: 7878, data: "To buy new clothes", status: true, StatusGood:true }],
     },
   ],
 };

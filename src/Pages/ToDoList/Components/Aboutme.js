@@ -9,7 +9,7 @@ import { StackOverflow } from "grommet-icons";
 import { Twitter } from "grommet-icons";
 import { Github } from "grommet-icons";
 import { Medium } from "grommet-icons";
-import Form from './PopUp'
+
 
 class AboutMe extends Component {
   constructor(props) {
@@ -101,14 +101,10 @@ class AboutMe extends Component {
           </Box>
           <Box justify="center" pad="none" margin="none">
             <Heading alignSelf="center" style={{ textDecoration: "underline" }}>
-              {"Maintain bucket as peryour needs"}
+              {"Wonder Buckets"}
             </Heading>
           </Box>
-          <Box pad={{ left: "medium" }}>
-            <Heading textAlign="start" level={3}>
-              {"Objective:-"}
-            </Heading>
-          </Box>
+
           <Box
             width="100%"
             alignSelf="start"

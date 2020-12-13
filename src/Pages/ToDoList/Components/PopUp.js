@@ -1,10 +1,18 @@
 import React, { Component } from "react";
-import { Box, Text, Layer, Button } from "grommet";
-import Form from './Form'
-import { Down, Github, Search, Edit, FormTrash, Add, FormClose } from "grommet-icons";
-import AddItem from './AddItem';
+import { Box, Layer, Button } from "grommet";
+import Form from "./Form";
+import { FormClose } from "grommet-icons";
+import styled from "styled-components";
+const ButtonStyle = styled(Button)`
+  top: 403px;
+  left: 772px;
+  width: 150px;
+  height: 50px;
+  border: 2px solid #33c088;
+  border-radius: 8px;
+  opacity: 1;
+`;
 class PopUp extends Component {
-  
   constructor(props) {
     console.log("Coming props in popup is ", props.current_buxket);
     super(props);
@@ -16,22 +24,27 @@ class PopUp extends Component {
   render() {
     return (
       <Box>
-        <Button
-          label="Add Bucket"
-          primary
-          onClick={() => this.setState({ setShow: true })}
-        />
+        <Box alignSelf="end">
+          <ButtonStyle
+            label="Add Bucket"
+            primary
+            onClick={() => this.setState({ setShow: true })}
+          />
+        </Box>
+
         {this.state.setShow && (
           <Layer
             onEsc={() => this.setState({ setShow: false })}
             onClickOutside={() => this.setState({ setShow: false })}
           >
             <Box margin="medium" pad="small">
-              <FormClose
-                color="brand"
-                size="large"
-                onClick={() => this.setState({ setShow: false })}
-              />
+              <Box alignSelf="end">
+                <FormClose
+                  color="brand"
+                  size="medium"
+                  onClick={() => this.setState({ setShow: false })}
+                />
+              </Box>
 
               <Form useFulProps={this.props}></Form>
             </Box>

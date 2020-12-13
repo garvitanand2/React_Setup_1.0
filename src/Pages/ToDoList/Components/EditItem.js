@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Box, Text, Layer, Button } from "grommet";
-import { Add, FormClose } from "grommet-icons";
+import { Add,Edit, FormClose } from "grommet-icons";
 import styled from "styled-components";
 const ButtonStyle = styled(Button)`
   top: 403px;
@@ -12,7 +12,7 @@ const ButtonStyle = styled(Button)`
   border-radius: 8px;
   opacity: 1;
 `;
-class AddItem extends Component {
+class EditItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,8 +22,8 @@ class AddItem extends Component {
   render() {
     return (
       <Box>
-        <Add
-          color="white"
+        <Edit
+          color="brand"
           size="medium"
           onClick={() => this.setState({ setShow: true })}
         />
@@ -49,8 +49,9 @@ class AddItem extends Component {
 
                   <Formik
                     initialValues={{
-                      item: "",
+                      item: this.props.data || "",
                       current_bucket: this.props.current_bucket,
+                      bucket_id : this.props.bucket_id
                     }}
                     onSubmit={(values, { setSubmitting }) => {
                       this.props.handleAddMoreItems(values);
@@ -64,8 +65,8 @@ class AddItem extends Component {
                       <Form>
                         <Box>
                           <Box gap="small">
-                            <Text size="small">{"To Do Task"}</Text>
-                            <Field name="item" placeholder="Add Item" />
+                           <Text weight = "bold">{"Edit"}</Text> 
+                            <Field name="item" placeholder="Update" />
                             <ErrorMessage name="item" component="div" />
                           </Box>
 
@@ -75,7 +76,7 @@ class AddItem extends Component {
                               type="submit"
                               color="brand"
                               disabled={isSubmitting}
-                              label={"Add Item"}
+                              label={"Save"}
                               size="small"
                             ></ButtonStyle>
                           </Box>
@@ -93,4 +94,4 @@ class AddItem extends Component {
   }
 }
 
-export default AddItem;
+export default EditItem;

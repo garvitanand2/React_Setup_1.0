@@ -1,21 +1,11 @@
 import React, { Component } from "react";
-import styled from "styled-components";
-import { Box, Text, Button, Select } from "grommet";
-import { Down, Github, Search, Edit, FormTrash, Add } from "grommet-icons";
+import { Box, Text } from "grommet";
+import { Edit, FormTrash, StatusGood, StatusDisabled } from "grommet-icons";
 import AboutMe from "./Components/Aboutme";
 import Form from "./Components/PopUp";
 import Data from "../../Data/ToDoApp/toDoApp";
-import AddItemPopUp from "./Components/AddItem"
-
-const ButtonStyle = styled(Button)`
-  top: 403px;
-  left: 772px;
-  width: 150px;
-  height: 50px;
-  border: 2px solid #33c088;
-  border-radius: 8px;
-  opacity: 1;
-`;
+import AddItemPopUp from "./Components/AddItem";
+import EditItem from "./Components/EditItem";
 
 class TODOITEM extends Component {
   constructor(props) {
@@ -28,7 +18,6 @@ class TODOITEM extends Component {
       formVisibility: true,
       current_bucket: 0,
     };
-    var add_item_popup = false;
   }
 
   handleGetData = () => {
@@ -49,7 +38,7 @@ class TODOITEM extends Component {
   };
 
   handleAddMoreItems = (props) => {
-    let cb = props.current_bucket
+    let cb = props.current_bucket;
     let data = this.state.bucket_list;
     let temp_item = {
       id: Math.floor(Math.random() * 10000),
@@ -58,6 +47,7 @@ class TODOITEM extends Component {
     };
     data[cb].items.push(temp_item);
     this.setState({ bucket_list: data });
+    localStorage.setItem("bucket_list", JSON.stringify(this.state.bucket_list));
   };
 
   handleDeleteBucket = (props) => {
@@ -68,6 +58,7 @@ class TODOITEM extends Component {
       }
     });
     this.setState({ bucket_list: data });
+    localStorage.setItem("bucket_list", JSON.stringify(this.state.bucket_list));
   };
 
   handleAddBucket = (props) => {
@@ -81,6 +72,7 @@ class TODOITEM extends Component {
     };
     data.push(temp_bucket);
     this.setState({ bucket_list: data });
+    localStorage.setItem("bucket_list", JSON.stringify(this.state.bucket_list));
   };
 
   handleDeleteItem = (bucket, item_id) => {
@@ -93,15 +85,39 @@ class TODOITEM extends Component {
       });
     });
     this.setState({ bucket_list: data });
+    localStorage.setItem("bucket_list", JSON.stringify(this.state.bucket_list));
+  };
+
+  handleMarkComplete = (bucket, item_id)=>{
+      let data = this.state.bucket_list;
+    data.forEach((ele) => {
+      ele.items.forEach((item) => {
+        if (item.id === item_id) {
+          item.StatusGood = !item.StatusGood;
+        }
+      });
+    });
+    this.setState({ bucket_list: data });
+    console.log("final data is", this.state.bucket_list)
+    localStorage.setItem("bucket_list", JSON.stringify(this.state.bucket_list));
+    
+  }
+
+  handleEditItem = (props) => {
+    let temp_data = this.state.bucket_list;
+    temp_data[props.bucket_id].items[props.current_bucket].data = props.item;
+    this.setState({ bucket_list: temp_data });
+    localStorage.setItem("bucket_list", JSON.stringify(this.state.bucket_list));
   };
 
   componentDidMount() {
-    console.log("State is ", this.state);
-    if (localStorage.getItem("size")) {
-      localStorage.setItem("size", 10);
-      localStorage.setItem("page", 1);
+    if (localStorage.getItem("bucket_list")) {
+      this.setState({
+        bucket_list: JSON.parse(localStorage.getItem("bucket_list")),
+      });
+    } else {
+      localStorage.setItem("bucket_list", JSON.stringify(Data.bucket_list));
     }
-    this.handleGetData();
   }
 
   render() {
@@ -127,9 +143,9 @@ class TODOITEM extends Component {
           ></Form>
           {this.state.bucket_list.map((element, index) => {
             return (
-              <Box width="100%" elevation="large" background="#E5FCFF">
+              <Box width="100%" elevation="large" background="#1A74ED">
                 {element.status && (
-                  <Box width="100%" pad="medium">
+                  <Box width="100%" pad={{ top: "small" }}>
                     <Box
                       direction="row"
                       width="100%"
@@ -144,27 +160,16 @@ class TODOITEM extends Component {
                             left: "large",
                             top: "small",
                             bottom: "medium",
+                            right: "small",
                           }}
-                          // border={{ color: "red", size: "medium" }}
                         >
-                          <Add
-                            size="large"
-                            color="brand"
-                            onClick={() => {
-                              console.log("I am here");
-                              // this.setState({
-                              //   current_bucket: index,
-                              //   // add_item_popup: true,
-                              // });
-                              this.add_item_popup = true;
-                              // localStorage.setItem("add_item_popup", true);
-                              console.log("I am here", this.add_item_popup);
-                              // this.handleAddMoreItems(element.id);
-                            }}
+                          <AddItemPopUp
+                            current_bucket={index}
+                            handleAddMoreItems={this.handleAddMoreItems}
                           />
                           <FormTrash
-                            size="large"
-                            color="brand"
+                            size="medium"
+                            color="white"
                             onClick={() => {
                               this.handleDeleteBucket(element.id);
                             }}
@@ -172,28 +177,22 @@ class TODOITEM extends Component {
                         </Box>
                       </Box>
                     </Box>
-                    <Box background="#5fe8d1">
+                    <Box background="white">
                       <Box
                         margin={{ left: "medium", top: "small", top: "small" }}
                       >
-                        <AddItemPopUp
-                          current_bucket={index}
-                          handleAddMoreItems={this.handleAddMoreItems}
-                        />
-
                         <Box gap="small" direction="row" margin="small">
                           <Text
                             alignSelf="start"
                             width="bold"
                             size="large"
                             color="black"
+                            weight="bold"
                             style={{ textDecoration: "underline" }}
                           >
-                            {" "}
                             {"Bucket name:"}
                           </Text>
-                          <Text alignSelf="start" width="bold" size="large">
-                            {" "}
+                          <Text alignSelf="start" color="brand" size="large">
                             {element.name}
                           </Text>
                         </Box>
@@ -203,128 +202,138 @@ class TODOITEM extends Component {
                             width="bold"
                             size="large"
                             color="black"
+                            weight="bold"
                             style={{ textDecoration: "underline" }}
                           >
                             {" "}
                             {"Discription:"}
                           </Text>
-                          <Text alignSelf="start" width="bold" size="large">
-                            {" "}
-                            {element.desc}
-                          </Text>
-                        </Box>
-                        <Box gap="small" direction="row" margin="small">
                           <Text
                             alignSelf="start"
                             width="bold"
                             size="large"
-                            color="black"
-                            style={{ textDecoration: "underline" }}
+                            color="brand"
                           >
-                            {"Total Items:"}
-                          </Text>
-                          <Text alignSelf="start" width="bold" size="large">
                             {" "}
-                            {this.state.bucket_list.length}
+                            {element.desc}
                           </Text>
                         </Box>
-                      </Box>
-                      <Box
-                        width="70%"
-                        gap="small"
-                        // border={{ color: "white", size: "small" }}
-                        pad="medium"
-                      >
                         {true && (
-                          <Box>
-                            {" "}
-                            {element.items.map((item, index) => {
-                              return (
-                                <Box
-                                  width="100%"
-                                  elevation="large"
-                                  background="#E5FCFF"
-                                >
-                                  {item.status && (
-                                    <Box width="100%" pad="medium">
-                                      <Box background="#5fe8d1">
-                                        <Box
-                                          width="70%"
-                                          gap="small"
-                                          // border={{ color: "white", size: "small" }}
-                                          pad="medium"
-                                          direction="row"
-                                        >
-                                          <Text
-                                            alignSelf="start"
-                                            width="bold"
-                                            size="large"
+                          <Box gap="small" direction="row" margin="small">
+                            <Text
+                              alignSelf="start"
+                              width="bold"
+                              size="large"
+                              color="black"
+                              weight="bold"
+                              style={{ textDecoration: "underline" }}
+                            >
+                              {"Total Items:"}
+                            </Text>
+                            <Text
+                              alignSelf="start"
+                              color="brand"
+                              width="bold"
+                              size="large"
+                            >
+                              {" "}
+                              {this.state.bucket_list[index].items.length}
+                            </Text>
+                          </Box>
+                        )}
+                      </Box>
+                      <Box direction="row">
+                        <Box width="100%" gap="small" pad="medium">
+                          {true && (
+                            <Box>
+                              {" "}
+                              {element.items.map((item, index) => {
+                               
+                                return (
+                                  <Box
+                                    width="100%"
+                                    elevation="small"
+                                    background="#E5FCFF"
+                                    // border={{ color: "red", size: "medium" }}
+                                  >
+                                    {item.status && (
+                                      <Box width="100%" pad="small">
+                                        <Box background="white" direction="row">
+                                          <Box
+                                            width="100%"
+                                            gap="xsmall"
+                                            pad="small"
+                                            direction="row"
                                           >
-                                            {" "}
-                                            {index + 1}
-                                          </Text>
-                                          <Text
-                                            alignSelf="start"
-                                            width="bold"
-                                            size="large"
+                                            <Box direction="row" gap="small">
+                                              <Text
+                                                alignSelf="start"
+                                                width="bold"
+                                                size="large"
+                                              >
+                                                {index + 1}
+                                              </Text>
+                                              <Text
+                                                alignSelf="start"
+                                                width="bold"
+                                                size="large"
+                                              >
+                                                {" "}
+                                                {item.data}
+                                              </Text>
+                                            </Box>
+                                          </Box>
+                                          <Box
+                                            margin="small"
+                                            direction="row"
+                                            align="center"
+                                            gap="medium"
                                           >
-                                            {" "}
-                                            {item.data}
-                                          </Text>
-                                          <Edit
-                                            color="brand"
-                                            size="medium"
-                                            onClick={() => {
-                                              this.handleDeleteItem(
-                                                element.id,
-                                                item.id
-                                              );
-                                            }}
-                                          ></Edit>
-                                          <FormTrash
-                                            color="brand"
-                                            size="medium"
-                                            onClick={() => {
-                                              this.handleDeleteItem(
-                                                element.id,
-                                                item.id
-                                              );
-                                            }}
-                                          ></FormTrash>
+                                            <EditItem
+                                              current_bucket={index}
+                                              bucket_id={element.id}
+                                              data={item.data}
+                                              handleAddMoreItems={
+                                                this.handleEditItem
+                                              }
+                                            />
+                                            <FormTrash
+                                              color="brand"
+                                              size="medium"
+                                              onClick={() => {
+                                                this.handleDeleteItem(
+                                                  element.id,
+                                                  item.id
+                                                );
+                                              }}
+                                            ></FormTrash>
+                                            <StatusGood
+                                              color= {item.StatusGood ? "brand":"green"}
+                                              size="medium"
+                                              onClick={() => {
+                                                this.handleMarkComplete(
+                                                  element.id,
+                                                  item.id
+                                                );
+                                              }}
+                                            ></StatusGood>
+                                          </Box>
                                         </Box>
                                       </Box>
-                                    </Box>
-                                  )}{" "}
-                                </Box>
-                              );
-                            })}
-                          </Box>
-                        )}{" "}
-                      </Box>
+                                    )}{" "}
+                                  </Box>
+                                );
+                              })}
+                            </Box>
+                          )}{" "}
+                        </Box>
+                      </Box>{" "}
                     </Box>
                   </Box>
                 )}{" "}
               </Box>
             );
           })}
-          <Box width="100%">
-            <Box alignSelf="center">
-              <Down
-                color="white"
-                size="large"
-                onClick={() => {
-                  // this.setState({list_size : this.state.list_size+5})
-                  let size = localStorage.getItem("size");
-                  // let page = localStorage.getItem("page");
-                  this.setState({ list_size: parseInt(size) + 5 });
-                  // this.setState({ page: parseInt(page) + 1 });
-                  localStorage.setItem("size", parseInt(size) + 5);
-                  // localStorage.setItem("page", parseInt(page) + 1);
-                  this.handleGetData();
-                }}
-              ></Down>
-            </Box>
-          </Box>
         </Box>
       </Box>
     );
