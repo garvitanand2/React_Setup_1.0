@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Box, Text, Button, Select } from "grommet";
-import { Down, Github, Search, Edit, FormTrash,Add } from "grommet-icons";
+import { Down, Github, Search, Edit, FormTrash, Add } from "grommet-icons";
 import AboutMe from "./Components/Aboutme";
-import Form from './Components/PopUp'
-import Data from "../../Data/ToDoApp/toDoApp"
+import Form from "./Components/PopUp";
+import Data from "../../Data/ToDoApp/toDoApp";
+import AddItemPopUp from "./Components/AddItem"
 
 const ButtonStyle = styled(Button)`
   top: 403px;
@@ -21,11 +22,13 @@ class TODOITEM extends Component {
     super(props);
     this.state = {
       userForks: [],
-      bucket_list:Data.bucket_list,
+      bucket_list: Data.bucket_list,
       list_size: "10",
       page: "1",
-      formVisibility:true,
+      formVisibility: true,
+      current_bucket: 0,
     };
+    var add_item_popup = false;
   }
 
   handleGetData = () => {
@@ -46,80 +49,54 @@ class TODOITEM extends Component {
   };
 
   handleAddMoreItems = (props) => {
-    console.log("Add more items")
-    const headers = {
-      Authorization: localStorage.getItem("token"),
+    let cb = props.current_bucket
+    let data = this.state.bucket_list;
+    let temp_item = {
+      id: Math.floor(Math.random() * 10000),
+      data: props.item,
+      status: true,
     };
-
-    let name = props.split("/");
-    fetch("https://api.github.com/user/following/" + name[0], {
-      method: "PUT",
-      headers: headers,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    data[cb].items.push(temp_item);
+    this.setState({ bucket_list: data });
   };
 
   handleDeleteBucket = (props) => {
-    console.log("I am deleting bucket", props)
-     let data = this.state.bucket_list;
-     data.forEach((ele) => {
-       console.log("Coming ele is ", ele)
-       if(ele.id === props){
-         ele.status = false
-
-       }
-      //  ele.items.forEach((item) => {
-      //   //  if (item.id === item_id) {
-      //   //    console.log("I am in i", item);
-      //   //    item.status = false;
-      //   //  }
-      //  });
-     });
-     this.setState({ bucket_list: data });
-    // const headers = {
-    //   Authorization: localStorage.getItem("token"),
-    // };
-
-    // let name = props.split("/");
-    // fetch("https://api.github.com/user/following/" + name[0], {
-    //   method: "DELETE",
-    //   headers: headers,
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("Success:", data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
+    let data = this.state.bucket_list;
+    data.forEach((ele) => {
+      if (ele.id === props) {
+        ele.status = false;
+      }
+    });
+    this.setState({ bucket_list: data });
   };
 
-  handleAddBucket = () => {
-    console.log("Data is", Data);
-    console.log("I am handling add bucket");
+  handleAddBucket = (props) => {
+    let data = this.state.bucket_list;
+    let temp_bucket = {
+      id: Math.floor(Math.random() * 10000),
+      name: props.name,
+      desc: props.description,
+      status: true,
+      items: [],
+    };
+    data.push(temp_bucket);
+    this.setState({ bucket_list: data });
   };
 
-  handleDeleteItem = (bucket , item_id) =>{
+  handleDeleteItem = (bucket, item_id) => {
     let data = this.state.bucket_list;
     data.forEach((ele) => {
       ele.items.forEach((item) => {
         if (item.id === item_id) {
-          console.log("I am in i", item)
           item.status = false;
         }
       });
     });
-    this.setState({ bucket_list : data});
-  }
+    this.setState({ bucket_list: data });
+  };
 
   componentDidMount() {
-    console.log("State is ", this.state)
+    console.log("State is ", this.state);
     if (localStorage.getItem("size")) {
       localStorage.setItem("size", 10);
       localStorage.setItem("page", 1);
@@ -141,19 +118,14 @@ class TODOITEM extends Component {
         >
           <Box>
             <Box pad={{ bottom: "medium" }}></Box>
-            <Box direction="row" gap="medium">
-              <Button
-                primary="true"
-                label="Add Bucket"
-                alignSelf="end"
-                onClick={() => {
-                  this.handleAddBucket();
-                }}
-              />
-            </Box>
+            <Box direction="row" gap="medium"></Box>
           </Box>
-          <Form></Form>
-          {this.state.bucket_list.map((element) => {
+          <Form
+            handleAddBucket={this.handleAddBucket}
+            handleAddMoreItems={this.handleAddMoreItems}
+            current_buxket={this.state.current_buxket}
+          ></Form>
+          {this.state.bucket_list.map((element, index) => {
             return (
               <Box width="100%" elevation="large" background="#E5FCFF">
                 {element.status && (
@@ -179,7 +151,15 @@ class TODOITEM extends Component {
                             size="large"
                             color="brand"
                             onClick={() => {
-                              this.handleAddMoreItems(element.id);
+                              console.log("I am here");
+                              // this.setState({
+                              //   current_bucket: index,
+                              //   // add_item_popup: true,
+                              // });
+                              this.add_item_popup = true;
+                              // localStorage.setItem("add_item_popup", true);
+                              console.log("I am here", this.add_item_popup);
+                              // this.handleAddMoreItems(element.id);
                             }}
                           />
                           <FormTrash
@@ -196,6 +176,11 @@ class TODOITEM extends Component {
                       <Box
                         margin={{ left: "medium", top: "small", top: "small" }}
                       >
+                        <AddItemPopUp
+                          current_bucket={index}
+                          handleAddMoreItems={this.handleAddMoreItems}
+                        />
+
                         <Box gap="small" direction="row" margin="small">
                           <Text
                             alignSelf="start"
