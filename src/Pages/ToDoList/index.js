@@ -20,23 +20,6 @@ class TODOITEM extends Component {
     };
   }
 
-  handleGetData = () => {
-    fetch(
-      "https://api.github.com/repos/facebook/react/forks?page=" +
-        this.state.page +
-        "&per_page=" +
-        this.state.list_size,
-      {
-        method: "GET",
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        this.setState({ userForks: data });
-      });
-  };
-
   handleAddMoreItems = (props) => {
     let cb = props.current_bucket;
     let data = this.state.bucket_list;
@@ -44,6 +27,7 @@ class TODOITEM extends Component {
       id: Math.floor(Math.random() * 10000),
       data: props.item,
       status: true,
+      StatusGood: true,
     };
     data[cb].items.push(temp_item);
     this.setState({ bucket_list: data });
@@ -98,7 +82,6 @@ class TODOITEM extends Component {
       });
     });
     this.setState({ bucket_list: data });
-    console.log("final data is", this.state.bucket_list);
     localStorage.setItem("bucket_list", JSON.stringify(this.state.bucket_list));
   };
 
@@ -151,9 +134,9 @@ class TODOITEM extends Component {
                           direction="row"
                           gap="medium"
                           pad={{
-                            left: "large",
-                            top: "small",
-                            bottom: "medium",
+                            // left: "large",
+                            top: "xsmall",
+                            bottom: "small",
                             right: "small",
                           }}
                         >
@@ -172,50 +155,49 @@ class TODOITEM extends Component {
                       </Box>
                     </Box>
                     <Box background="white">
-                      <Box margin={{ left: "medium", top: "small" }}>
-                        <Box gap="small" direction="row" margin="small">
+                      <Box
+                        margin={{ left: "medium", top: "xsmall" }}
+                        gap="none"
+                      >
+                        <Box gap="small" direction="row" margin="xsmall">
                           <Text
                             alignSelf="start"
-                            width="bold"
-                            size="large"
+                            size="medium"
                             color="black"
                             weight="bold"
                             style={{ textDecoration: "underline" }}
                           >
-                            {"Bucket name:"}
+                            {" Bucket name:"}
                           </Text>
-                          <Text alignSelf="start" color="brand" size="large">
+                          <Text alignSelf="start" color="brand" size="medium">
                             {element.name}
                           </Text>
                         </Box>
-                        <Box gap="small" direction="row" margin="small">
+                        <Box gap="small" direction="row" margin="xsmall">
                           <Text
                             alignSelf="start"
-                            width="bold"
-                            size="large"
+                            size="medium"
                             color="black"
                             weight="bold"
                             style={{ textDecoration: "underline" }}
                           >
-                            {" "}
                             {"Discription:"}
                           </Text>
                           <Text
                             alignSelf="start"
                             width="bold"
-                            size="large"
+                            size="medium"
                             color="brand"
                           >
-                            {" "}
                             {element.desc}
                           </Text>
                         </Box>
                         {true && (
-                          <Box gap="small" direction="row" margin="small">
+                          <Box gap="small" direction="row" margin="xsmall">
                             <Text
                               alignSelf="start"
                               width="bold"
-                              size="large"
+                              size="medium"
                               color="black"
                               weight="bold"
                               style={{ textDecoration: "underline" }}
@@ -226,7 +208,7 @@ class TODOITEM extends Component {
                               alignSelf="start"
                               color="brand"
                               width="bold"
-                              size="large"
+                              size="medium"
                             >
                               {" "}
                               {this.state.bucket_list[index].items.length}
@@ -248,26 +230,26 @@ class TODOITEM extends Component {
                                     // border={{ color: "red", size: "medium" }}
                                   >
                                     {item.status && (
-                                      <Box width="100%" pad="small">
+                                      <Box width="100%" pad="xsmall">
                                         <Box background="white" direction="row">
                                           <Box
                                             width="100%"
                                             gap="xsmall"
-                                            pad="small"
+                                            pad="xsmall"
                                             direction="row"
                                           >
                                             <Box direction="row" gap="small">
                                               <Text
                                                 alignSelf="start"
                                                 width="bold"
-                                                size="large"
+                                                size="medium"
                                               >
                                                 {index + 1}
                                               </Text>
                                               <Text
                                                 alignSelf="start"
                                                 width="bold"
-                                                size="large"
+                                                size="medium"
                                               >
                                                 {" "}
                                                 {item.data}

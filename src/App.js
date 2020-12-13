@@ -1,26 +1,13 @@
 import React from "react";
-// import logo from "./logo.svg";
 import "./App.css";
-// import MyComponent from "./component/home.js";
 import MainPage from "./component/Main";
-// import Home from "./component/Page2";
-// import StartPage from "./component/Start";
 import Resume from "./Pages/Resume";
 import GITHUB from "./Pages/github_followers";
-// import TIKTAKTOE_GAME from "./Pages/Zero_Cross";
-import ToDOList from "./Pages/ToDoList"
+import ToDOList from "./Pages/ToDoList";
 import { Box, Text, Clock } from "grommet";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-
-  // useHistory,
-  
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  // const history = useHistory();
   return (
     <Router>
       <div className="App" width="100%" flex="grow">
@@ -41,8 +28,6 @@ function App() {
             <ToDOList />
           </Route>
           <Route path="/">
-            {/*<StartPage />*/}
-            {/* <GITHUB /> */}
             <ToDOList />
           </Route>
         </Switch>
