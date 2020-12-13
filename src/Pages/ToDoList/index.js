@@ -88,8 +88,8 @@ class TODOITEM extends Component {
     localStorage.setItem("bucket_list", JSON.stringify(this.state.bucket_list));
   };
 
-  handleMarkComplete = (bucket, item_id)=>{
-      let data = this.state.bucket_list;
+  handleMarkComplete = (bucket, item_id) => {
+    let data = this.state.bucket_list;
     data.forEach((ele) => {
       ele.items.forEach((item) => {
         if (item.id === item_id) {
@@ -98,10 +98,9 @@ class TODOITEM extends Component {
       });
     });
     this.setState({ bucket_list: data });
-    console.log("final data is", this.state.bucket_list)
+    console.log("final data is", this.state.bucket_list);
     localStorage.setItem("bucket_list", JSON.stringify(this.state.bucket_list));
-    
-  }
+  };
 
   handleEditItem = (props) => {
     let temp_data = this.state.bucket_list;
@@ -126,15 +125,11 @@ class TODOITEM extends Component {
         <AboutMe></AboutMe>
         <Box
           width="100%"
-          // alignSelf="center"
           gap="medium"
           flex="grow"
-          // elevation="medium"
           pad="small"
           background="white"
-          border={{ color: "red", size: "medium" }}
         >
-         
           <Form
             handleAddBucket={this.handleAddBucket}
             handleAddMoreItems={this.handleAddMoreItems}
@@ -177,9 +172,7 @@ class TODOITEM extends Component {
                       </Box>
                     </Box>
                     <Box background="white">
-                      <Box
-                        margin={{ left: "medium", top: "small" }}
-                      >
+                      <Box margin={{ left: "medium", top: "small" }}>
                         <Box gap="small" direction="row" margin="small">
                           <Text
                             alignSelf="start"
